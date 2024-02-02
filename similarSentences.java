@@ -87,13 +87,13 @@ public class similarSentences {
             if(words1[i].equals(words2[i])) continue;
 
             if(!map.containsKey(words1[i]) && !map.containsKey(words2[i]))
-                throw new IllegalArgumentException("bad");
+                throw new IllegalArgumentException("bad input");
+
             if(!map.containsKey(words1[i]) || !map.containsKey(words2[i])) {
-                System.out.printf("1 return false for: %s %s", words1[i], words2[i]);
                 return false;
-        }
-            if(!map.get(words1[i]).equals(map.get(words2[i]))) {
-                System.out.printf("2 return false for: %s-%d %s-%d", words1[i], map.get(words1[i]), words2[i], map.get(words2[i]));
+
+            // LESSON: map.get(words1[i]) == map.get(words2[i]) does NOT work as it compares Integer references (always unequal) instead of values.
+            if(!map.get(words1[i]).equals(map.get(words2[i]))) { 
                 return false;
             }
         }
