@@ -1,4 +1,4 @@
-class Solution {
+class Solution2 {
     public static int rob(int[] nums) {
         if(nums.length == 1) return nums[0];
         
@@ -37,6 +37,6 @@ class Solution {
 
     public static void main(String args[])  {
     int ret = rob(new int[]{2,3,2});
-        System.out.println(ret);
+        //System.out.println(ret);
     }
 }
