@@ -36,11 +36,6 @@ PART 1
  Your function should return the total time it took the car to travel through the city.
  */
 
-import oop.vendingMachine.Inventory;
-import oop.vendingMachine.Product;
-import oop.vendingMachine.ProductInventory;
-import oop.vendingMachine.Vendor;
-
 public class trafficLight {
  // https://leetcode.com/discuss/interview-question/1143290/build-a-program-to-simulate-traffic-flowing-through-the-city
  
