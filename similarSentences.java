@@ -89,7 +89,7 @@ public class similarSentences {
             if(!map.containsKey(words1[i]) && !map.containsKey(words2[i]))
                 throw new IllegalArgumentException("bad input");
 
-            if(!map.containsKey(words1[i]) || !map.containsKey(words2[i])) {
+            if(!map.containsKey(words1[i]) || !map.containsKey(words2[i])) 
                 return false;
 
             // LESSON: map.get(words1[i]) == map.get(words2[i]) does NOT work as it compares Integer references (always unequal) instead of values.
@@ -97,7 +97,6 @@ public class similarSentences {
                 return false;
             }
         }
-
         return true;
     }
 }

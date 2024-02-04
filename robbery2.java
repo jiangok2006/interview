@@ -36,7 +36,7 @@ class Solution2 {
     }
 
     public static void main(String args[])  {
-    int ret = rob(new int[]{2,3,2});
-        //System.out.println(ret);
+        int ret = rob(new int[]{2,3,2});
+        System.out.println(ret);
     }
 }
