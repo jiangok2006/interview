@@ -36,8 +36,83 @@ PART 1
  Your function should return the total time it took the car to travel through the city.
  */
 
+import oop.vendingMachine.Inventory;
+import oop.vendingMachine.Product;
+import oop.vendingMachine.ProductInventory;
+import oop.vendingMachine.Vendor;
+
 public class trafficLight {
  // https://leetcode.com/discuss/interview-question/1143290/build-a-program-to-simulate-traffic-flowing-through-the-city
  
- 
+    enum State {
+        WAITING_FOR_MOVING,
+        WAITING_FOR_REDLIGHT,
+        EXITED
+    }
+
+    class Orchestrator {
+        String[] points;
+        int whereAmI;
+        int timer;
+        State state;
+
+        public Orchestrator() {
+            this.points = new String[]{"J", "AJ", "BJ", "K"};
+            this.timer = 0;
+            this.state = State.WAITING_FOR_MOVING;
+            this.whereAmI = 0;
+        }
+
+        public void orch() {
+            while(true) {
+                switch(state) {
+                    case WAITING_FOR_MOVING:
+                        move();
+                        break;
+                    case WAITING_FOR_REDLIGHT:
+                        waitForRedLight();
+                        break;
+                    default:
+                        System.out.println(String.format("exit at timer:%d", this.timer));
+                        return;
+                }
+            }
+        }
+
+        boolean isRedLight() {
+            return this.timer%2 == 0;
+        }
+
+        void move() {
+            System.out.println(String.format("move, timer:%d, position: %d", this.timer, this.whereAmI));
+
+            this.whereAmI++;
+            if(this.whereAmI >= this.points.length-1) {
+                this.state = State.EXITED;
+                return;
+            }
+
+            this.timer++;
+            if(isRedLight()) {
+                this.state = State.WAITING_FOR_REDLIGHT;
+            }
+        }
+
+        void waitForRedLight() {
+            System.out.println(String.format("wait for red light, timer:%d", this.timer));
+            this.timer++;
+            if(!isRedLight()) {
+                this.state = State.WAITING_FOR_MOVING;
+            }
+        }
+    }
+
+        public void test() {
+            Orchestrator or = new Orchestrator();
+            or.orch();
+        }
+
+        public static void main(String args[])  {
+            new trafficLight().test();
+        }
 }
