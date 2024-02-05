@@ -1,5 +1,6 @@
 import java.util.Arrays;
 
+// https://leetcode.com/problems/two-city-scheduling/
 public class TwoCityScheduling {
 
     public int twoCitySchedCost(int[][] costs) {
