@@ -34,7 +34,7 @@ import java.util.List;
 
 
 public class MinDistanceToExit {
-    class Node {
+        class Node {
         public int cnt;
         public int x;
         public int y;
